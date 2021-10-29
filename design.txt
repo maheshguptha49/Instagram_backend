@@ -1,6 +1,0 @@
-An activity model is for the news feed because if you want to get likes count for a post or comment you would have to query the likes model every time that would fire a lot of queries so Activity table is needed 
-
-post has userid and body 
-Comment has userid , body , its parentId and type of parent
-Like has userid , body , its parentid and type of parent
-

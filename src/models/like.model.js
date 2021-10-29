@@ -1,10 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const likeSchema=mongoose.Schema({
-    parentId:{type:mongoose.Schema.Types.ObjectId,required:true},
-    user_id:{type:mongoose.Schema.Types.ObjectId,required},
-    type:{type:String,required:true,enum : ['comment','post'],},
+    user_id:{type: mongoose.Schema.Types.ObjectId,ref:"user",required:true},
+    post_id:{type: mongoose.Schema.Types.ObjectId,ref:"post",required:false,default:null},
+    parentCommentId:{type: mongoose.Schema.Types.ObjectId,ref:"comment",required:false,default:null},
+    parentType:{type: String,required:true,enum:["comment","post"]}
+},{
+    versionKey:false,
+    timestamp:true
 })
 
-const Like=mongoose.model('like',likeSchema)
-module.exports=Like
+const Like=mongoose.model("like",likeSchema)
+module.exports = Like

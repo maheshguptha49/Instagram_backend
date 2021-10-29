@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose');
+const {MONGOURI}=require('../keys')
 const connect=()=>{
-    return mongoose.connect("mongodb://127.0.0.1:27017/instagram")
+    return mongoose.connect(MONGOURI)
 }
-module.exports=connect
+module.exports = connect
